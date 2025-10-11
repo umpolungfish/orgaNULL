@@ -1,6 +1,7 @@
-# OrgaNULL - Advanced Binary Packer with Cellular Automaton Obfuscation
+# OrgaNULL - Binary Packer with Cellular Automaton Obfuscation
 
-OrgaNULL is a sophisticated binary packer that combines modern cryptographic techniques with cellular automaton-based obfuscation to create heavily obfuscated executables. This tool is designed for advanced reverse engineering protection, malware research, and binary obfuscation experimentation.
+OrgaNULL is a binary packer that combines modern cryptographic techniques with cellular automaton-based obfuscation to create heavily obfuscated executables. \
+This tool is designed for advanced reverse engineering protection, malware research, and binary obfuscation experimentation.
 
 ## Features
 
@@ -19,7 +20,6 @@ OrgaNULL is a sophisticated binary packer that combines modern cryptographic tec
 - `backup_important/` - Backup of important project files
 - `requirements.txt` - Python dependencies
 - `README.md` - Project documentation
-- `QWEN.md` - Project context for AI agents
 
 ## Core Components
 
@@ -166,10 +166,10 @@ This project is maintained as a research and educational tool for binary obfusca
 - Enhancing the assembly stub
 - Improving compatibility across different binary formats
 
-## License
+## Unlicense
 
-This project is licensed under the terms specified in the original repository.
+This project is unlicensed
 
 ## Acknowledgments
 
-OrgaNULL builds upon the foundational work of the CA-Packer project, significantly expanding and enhancing the original implementation with additional features, documentation, and usability improvements.
+boredom, compounds, a restless mind
