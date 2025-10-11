@@ -426,7 +426,8 @@ def integrate_packed_binary(original_binary_path, original_binary, stub_data, ob
 
             # --- Save Binary ---
             # LIEF builder is recommended for final output to ensure headers are correct
-            builder = lief.PE.Builder(original_binary)
+            builder_config = lief.PE.Builder.config_t()
+            builder = lief.PE.Builder(original_binary, builder_config)
             builder.build() # This finalizes the build process
             builder.write(output_path)
             
