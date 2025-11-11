@@ -1,0 +1,81 @@
+graph TB
+    subgraph "orgaNULL Binary Packer Architecture"
+        direction TB
+        
+        subgraph "Input Layer"
+            A[Target Binary] --> A1[Binary Loader]
+            A1 --> A2[Payload Extractor]
+        end
+        
+        subgraph "Encryption Layer"
+            A2 --> B1[ChaCha20 Encryptor]
+            B2[256-bit Key + 96-bit Nonce] --> B1
+            B1 --> B3[Encrypted Payload]
+        end
+        
+        subgraph "Obfuscation Layer"
+            B3 --> C1[CA Rule 30 Engine]
+            C2[CA Evolution Steps Config] --> C1
+            C3[Block Index Generator] --> C1
+            C1 --> C4[CA Masked Payload]
+        end
+        
+        subgraph "Stub Generation"
+            D1[Assembly Stub Compiler] --> D2[Complete Unpacking Stub]
+            D3[Stub Config Parameters] --> D1
+        end
+        
+        subgraph "Binary Integration"
+            C4 --> E1[Binary Integrator]
+            D2 --> E1
+            E1 --> E2[Packed Binary]
+        end
+        
+        subgraph "Runtime Execution"
+            E2 --> F1[Entry Point - Stub]
+            F1 --> F2[Anti-Debug Check]
+            F2 --> F3[Dynamic Base Calculation]
+            F3 --> F4[CA Unmasking]
+            F4 --> F5[ChaCha20 Decryption]
+            F5 --> F6[In-Memory Execution<br/>memfd_create + fexecve]
+        end
+    end
+    
+    subgraph "Control Flow"
+        G[Main Orchestrator<br/>organull.py] --> A1
+        G --> D1
+        G --> D3
+        D3 --> B2
+        D3 --> C2
+    end
+    
+    subgraph "Data Flow"
+        A --> A1
+        A1 --> A2
+        A2 --> B1
+        B1 --> B3
+        B3 --> C1
+        C1 --> C4
+        D1 --> D2
+        C4 --> E1
+        D2 --> E1
+        E1 --> E2
+        E2 --> F1
+        F1 --> F2
+        F2 --> F3
+        F3 --> F4
+        F4 --> F5
+        F5 --> F6
+    end
+    
+    subgraph "Component Dependencies"
+        H[CA Engine<br/>ca_engine.py] -.-> C1
+        I[Crypto Engine<br/>crypto_engine.py] -.-> B1
+        J[Complete Unpacking Stub<br/>complete_unpacking_stub.s] -.-> D2
+        K[Assembly Compiler<br/>compile_complete_unpacking_stub.py] -.-> D1
+    end
+    
+    subgraph "Configuration"
+        L[CLI Parameters<br/>--ca-steps, --debug-stub] --> G
+        M[Python API<br/>pack_binary()] --> G
+    end
