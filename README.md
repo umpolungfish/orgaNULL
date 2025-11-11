@@ -362,15 +362,9 @@ When executed, the stub:
 
 <br>
 
-## 🤝 CONTRIBUTING
+## CONTRIBUTING
 
-Contributions are welcome! Areas of focus:
-
-- 🛠️ Enhance CA engine with new rules
-- 💡 Add new obfuscation layers
-- 🔧 Improve assembly stub efficiency
-- 📖 Extend binary format support
-- 🧪 Add more test coverage
+Contributions are welcome!
 
 <br>
 
